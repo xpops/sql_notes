@@ -21,12 +21,12 @@ What's up with the `DELIMITER`?
 - Why? Since we have to put `;` in the trigger.
 
 ```sql
--- Can use if-else block!
 DELIMITER $$  
 CREATE  
     TRIGGER my_trigger_2 BEFORE INSERT  
     ON employee  
     FOR EACH ROW BEGIN  
+	    -- Can use if-else block!
         IF NEW.sex = 'M' THEN  
             INSERT INTO trigger_test VALUES('added male employee');  
         ELSEIF NEW.sex = 'F' THEN  
